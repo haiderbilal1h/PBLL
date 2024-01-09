@@ -1,0 +1,4 @@
+sabse pehle aik main route hoga jismein kuch khaas nhi hoga
+uske baad aik data route hoga, jismein table hongi products ki, start mein wo empty hoga and waha aik btn hoga ke add a product
+jese hi product add hojaegawo aik table ki form mein us page pr display horha hoga
+aur us table ke prodcut kamain heading aik link hoga aur wo link aik dynamic route hoga, jo har route ke hisab se khud update hoga, aur then waha data route pr aik btn aur hoga name se Add Data, us rooute par phir se aik data add hoga joke main product ki ejs file mein apppend hota rhega, then waha aik flash message hoga jo batayega ke kis product ki expiry date mein 1 month left hai, basically hum ye karskte hain ke uski expiry date ko hum split krden aur then us array ke 1st element ki value mein se 1 minus krden, aur then check kren ke kia abhi ki date aur uski date mein 1 month left hai aur agar hai to flash message hojaega ke wo uske bg ko red krdo else white
