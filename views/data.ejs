@@ -23,6 +23,7 @@
   </div>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Product Name</th>
       <th>Mili litres</th>
       <th>Type</th>
@@ -37,6 +38,7 @@
     <% if (elem.shortexp && elem.expirydate >= new Date()) { %>
       <!-- Check if the product is short-expired and not already expired -->
       <tr class="bg-red-400">
+        <td class="bg-yellow-600 rounded-[1px]"><%= elem._id %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.name %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.ml %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.type %></td>
@@ -45,6 +47,7 @@
     <% } else if (elem.expirydate < new Date()) { %>
       <!-- Check if the product is already expired -->
       <tr class="bg-red-800">
+        <td class="bg-red-700"><%= elem._id %></td>
         <td class="bg-red-700"><%= elem.name %></td>
         <td class="bg-red-700"><%= elem.ml %></td>
         <td class="bg-red-700"><%= elem.type %></td>
@@ -52,6 +55,7 @@
       </tr>
     <% } else { %>
       <tr>
+        <td><%= elem._id %></td>
         <td><%= elem.name %></td>
         <td><%= elem.ml %></td>
         <td><%= elem.type %></td>
