@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "pakbevv",
-    "builds": [{ "src": "node ./bin/www", "use": "@vercel/node" }],
+    "builds": [{ "src": "node app.js", "use": "@vercel/node" }],
     "routes": [{ "src": "/(.*)", "dest": "./routes/index.js" }]
   }
   
