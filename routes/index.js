@@ -37,6 +37,19 @@ router.post("/show/:productname/data/addreal",async function(req,res){
   await product.save();
   res.redirect(`/show/${req.params.productname}/data`)
 })
+router.post("/edit/:productname/:productdataname/data/editreal",async function(req,res){
+  await productdataModel.findOneAndUpdate({name:req.params.productdataname},{
+    name:req.body.editdataname,
+    type:req.body.editdatatype,
+    ml:req.body.editdataml,
+    expirydate:req.body.editdataexpiry
+  }, { new: true });
+
+console.log("updated successfully")
+
+
+  res.redirect(`/show/${req.params.productname}/data`)
+})
 
 
 
@@ -105,5 +118,11 @@ function isExpiringSoon(expiryDate) {
   // Compare expiryDate with oneMonthFromNow
   return expiryDate < oneMonthFromNow;
 }
+
+router.get("/edit/:productname/:id/data",async function(req,res){
+  const productreal = await productModel.findOne({name:req.params.productname})
+  const product = await productdataModel.findOne({_id:req.params.id})
+  res.render("editproductdata.ejs",{title:"PBL",product,productreal})
+})
 
 module.exports = router;

@@ -42,7 +42,7 @@
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.name %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.ml %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.type %></td>
-        <td class="bg-yellow-600 rounded-[1px]"><%= elem.expirydate.toLocaleDateString('en-GB') %></td>
+        <td class="bg-yellow-600"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else if (elem.expirydate < new Date()) { %>
       <!-- Check if the product is already expired -->
@@ -51,7 +51,7 @@
         <td class="bg-red-700"><%= elem.name %></td>
         <td class="bg-red-700"><%= elem.ml %></td>
         <td class="bg-red-700"><%= elem.type %></td>
-        <td class="bg-red-700"><%= elem.expirydate.toLocaleDateString('en-GB') %></td>
+        <td class="bg-red-700"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else { %>
       <tr>
@@ -59,7 +59,7 @@
         <td><%= elem.name %></td>
         <td><%= elem.ml %></td>
         <td><%= elem.type %></td>
-        <td><%= elem.expirydate.toLocaleDateString('en-GB') %></td>
+        <td><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } %>
   <% }) %>
@@ -68,6 +68,7 @@
 <!-- ... your remaining code ... -->
 
   </table>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
