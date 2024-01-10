@@ -45,6 +45,7 @@ router.get("/show/:productname/data", async function(req, res) {
   const product = await productModel.findOne({ name: req.params.productname }).populate("data");
 
   for (const e of product.data) {
+    if(e.expirydate!=null){
     const isShortExpired = await isExpiringSoon(e.expirydate);
     
     if (isShortExpired) {
@@ -54,6 +55,29 @@ router.get("/show/:productname/data", async function(req, res) {
     }
     console.log(e.shortexp);
   }
+
+
+    else{
+      e.expirydate = new Date().toLocaleDateString('en-GB');
+      const isShortExpired = await isExpiringSoon(e.expirydate);
+    
+      if (isShortExpired) {
+        e.shortexp=true
+      } else {
+        e.shortexp=false
+      }
+      console.log(e.shortexp);
+    }
+  }
+
+
+
+
+
+
+
+
+  // ye alag ahi
   res.render("data", { title: 'PBL', product});
 
 
