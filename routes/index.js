@@ -5,7 +5,7 @@ const productdataModel = require("../models/productdataModel")
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   const product = await productModel.find()
-  console.log(product)
+  console.log(product[0].data.length)
   res.render('index', { title: 'PBL',product });
 });
 router.get("/addproduct",function(req,res){
@@ -17,9 +17,9 @@ router.get("/addproduct",function(req,res){
 router.post("/addproduct",async function(req,res){
   const product = await productModel.create({
     name:req.body.productname,
-    quantity:req.body.productquantity,
     instock:req.body.productstock
-  })
+  });
+
   await product.save();
   res.redirect("/")
 })
