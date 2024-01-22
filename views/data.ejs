@@ -51,7 +51,7 @@
         <td class="bg-red-700"><%= elem.name %></td>
         <td class="bg-red-700"><%= elem.ml %></td>
         <td class="bg-red-700"><%= elem.type %></td>
-        <td class="bg-red-700"><%= elem.expirydate %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td class="bg-red-700"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else { %>
       <tr>
@@ -59,7 +59,7 @@
         <td><%= elem.name %></td>
         <td><%= elem.ml %></td>
         <td><%= elem.type %></td>
-        <td><%= elem.expirydate %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } %>
   <% }) %>
