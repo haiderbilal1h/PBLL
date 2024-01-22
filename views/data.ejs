@@ -42,7 +42,7 @@
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.name %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.ml %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.type %></td>
-        <td class="bg-yellow-600"><%= elem.expirydate %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td class="bg-yellow-600"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else if (elem.expirydate < new Date()) { %>
       <!-- Check if the product is already expired -->
