@@ -42,7 +42,9 @@
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.name %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.ml %></td>
         <td class="bg-yellow-600 rounded-[1px]"><%= elem.type %></td>
-        <td class="bg-yellow-600"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td class="bg-yellow-600"><% if (elem.expirydate) { %>
+    <%= elem.expirydate.toLocaleDateString('en-GB') %>
+  <% } %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else if (elem.expirydate < new Date()) { %>
       <!-- Check if the product is already expired -->
@@ -51,7 +53,9 @@
         <td class="bg-red-700"><%= elem.name %></td>
         <td class="bg-red-700"><%= elem.ml %></td>
         <td class="bg-red-700"><%= elem.type %></td>
-        <td class="bg-red-700"><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td class="bg-red-700"><% if (elem.expirydate) { %>
+    <%= elem.expirydate.toLocaleDateString('en-GB') %>
+  <% } %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } else { %>
       <tr>
@@ -59,7 +63,9 @@
         <td><%= elem.name %></td>
         <td><%= elem.ml %></td>
         <td><%= elem.type %></td>
-        <td><%= elem.expirydate.toLocaleDateString('en-GB') %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
+        <td><% if (elem.expirydate) { %>
+    <%= elem.expirydate.toLocaleDateString('en-GB') %>
+  <% } %> <a href="/edit/<%=product.name%>/<%=elem.id%>/data"><code class="bg-blue-900 px-2">Edit</code></a></td>
       </tr>
     <% } %>
   <% }) %>
